@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh 'mvn clean package'
             }
+        }
 
         stage('upload war to nexus repo') {
             steps {
@@ -24,10 +25,9 @@ pipeline {
                      nexusUrl: '172.31.14.81:8081', 
                      nexusVersion: 'nexus3', 
                      protocol: 'http', 
-                     repository: 'http://35.154.196.171:8081/repository/simple-app/', 
+                     repository: 'simple-app', 
                      version: '1.0.0'
                  }
           }    
-        }
     }
 }
